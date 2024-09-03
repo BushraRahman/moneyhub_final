@@ -108,116 +108,6 @@ session = """{"id": "123",
         },
         "postResponses":{
             "q1":"limitations or obstacles",
-            "q2":"your passion",
-            "q3":"an answer key",
-            "q4":"closing your eyes"
-        },
-        "target_topics": ["credit_score"]
-    },
-    "4": {
-        "name":"Jessica",
-        "school":"BGC",
-        "preResponses":{
-            "q1":"your pet",
-            "q2":"what's important to your parents",
-            "q3":"a roadmap",
-            "q4":"a t chart"
-        },
-        "postResponses":{
-            "q1":"your pet",
-            "q2":"your passion",
-            "q3":"a roadmap",
-            "q4":"closing your eyes"
-        },
-        "target_topics": ["credit_score"]
-    },
-    "5": {
-        "name":"Jirel",
-        "school":"BGC",
-        "preResponses":{
-            "q1":"limitations or obstacles",
-            "q2":"what's important to you",
-            "q3":"a hack",
-            "q4":"a t chart"
-        },
-        "postResponses":{
-            "q1":"limitations or obstacles",
-            "q2":"what's important to you",
-            "q3":"a hack",
-            "q4":"a t chart"
-        },
-        "target_topics": ["credit_score"]
-    },
-    "6": {
-        "name":"Ally",
-        "school":"BGC",
-        "preResponses":{
-            "q1":"limitations or obstacles",
-            "q2":"what's important to you",
-            "q3":"nothing",
-            "q4":"your friends"
-        },
-        "postResponses":{
-            "q1":"limitations or obstacles",
-            "q2":"your passion",
-            "q3":"nothing",
-            "q4":"a t chart"
-        },
-        "target_topics": ["credit_score"]
-    }
-}
-}"""
-
-#
-session = """{"id": "123",
-"topicID": "A",
-"url":"url",
-"students": {
-    "1": {
-        "name":"Rayan",
-        "school":"BGC",
-        "preResponses":{
-            "q1":"limitations or obstacles",
-            "q2":"what's important to you",
-            "q3":"a roadmap",
-            "q4":"a t chart"
-        },
-        "postResponses":{
-            "q1":"limitations or obstacles",
-            "q2":"what's important to you",
-            "q3":"a roadmap",
-            "q4":"a t chart"
-        },
-        "target_topics": ["credit_score"]
-    },
-    "2": {
-        "name":"Shane",
-        "school":"BGC",
-        "preResponses":{
-            "q1":"limitations or obstacles",
-            "q2":"your passion",
-            "q3":"an answer key",
-            "q4":"a t chart"
-        },
-        "postResponses":{
-            "q1":"limitations or obstacles",
-            "q2":"what's important to you",
-            "q3":"a roadmap",
-            "q4":"a t chart"
-        },
-        "target_topics": ["credit_score"]
-    },
-    "3": {
-        "name":"Dwayne",
-        "school":"BGC",
-        "preResponses":{
-            "q1":"your pet",
-            "q2":"your passion",
-            "q3":"an answer key",
-            "q4":"closing your eyes"
-        },
-        "postResponses":{
-            "q1":"limitations or obstacles",
             "q2":"what's important to you",
             "q3":"a roadmap",
             "q4":"a t chart"
@@ -281,25 +171,6 @@ session = """{"id": "123",
 # Load the students' responses
 student_data = json.loads(session)["students"]
 
-# def analyze_responses(pre_response, post_response, correct_answer):
-#     prompt = f"""
-#     Compare the following student responses to the correct answer:
-#     Pre-response: {pre_response}
-#     Post-response: {post_response}
-#     Correct answer: {correct_answer}
-
-#     Determine if the student’s understanding has improved, declined, or remained the same, and provide a brief explanation.
-#     """
-
-#     response = openai.Completion.create(
-#         engine="text-davinci-003",
-#         prompt=prompt,
-#         max_tokens=100
-#     )
-
-#     return response['choices'][0]['text'].strip()
-
-# Analyze responses for each student
 trends_data = {}
 
 #test if it being optional works
@@ -332,8 +203,6 @@ def byTopic3(topic_name):
         trends_data[topics_data[topic_name]["sub_topics"][i-1]] = sub_topic
 
 byTopic3("credit_score")
-print(trends_data)
-#ally = trends_data["Ally"]
 
 openai = OpenAI()
 
